@@ -1,0 +1,109 @@
+html,
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1440px;
+}
+
+.v-center {
+  align-items: center;
+}
+
+.h-center {
+  justify-content: center;
+}
+
+.list-item {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+
+.checked {
+  .checkbox {
+    &:after {
+      border: 1px solid lightgreen;
+      color: #ffffff;
+      background: lightgreen;
+    }
+  }
+
+  .todo-item {
+    &:after {
+      background: green;
+      height: 2px;
+      left: 0;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      transition:.3s;
+      top: 12px;
+      width: 100%;
+    }
+  }
+}
+
+.checkbox {
+  margin-right: 10px;
+  &:after {
+    content: "✓";
+    font-size: 13px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    padding: 2px 5px;
+    
+  }
+}
+
+.button {
+  background: white;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 5px 20px;
+  margin-top: 10px;
+}
+
+.edit-toggle {
+  font-size: 16px;
+  margin-left: 15px;
+}
+
+.edit-box {
+  background: white;
+  border: 1px solid black;
+  left: -35px;
+  padding: 60px 100px;
+  position: absolute;
+  top: -5px;
+  z-index: 1;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.todo-item {
+  position: relative;
+  &:after {
+    content: '';
+    width: 5%;
+  }
+}
+
+
+.inline-block {
+  display: inline-block;
+}
