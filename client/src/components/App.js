@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-import ToDoList from './todos/ToDoList';
 // import ToDoCreate from './todos/ToDoCreate';
+import ToDoList from './todos/ToDoList';
+import ToDoEdit from './todos/ToDoEdit';
+
 
 import '../scss/app.scss';
 
@@ -13,6 +15,7 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={ToDoList} />
+            <Route path="/todos/edit/:id" exact component={ToDoEdit} />
           </Switch>
         </Router>
       </div>

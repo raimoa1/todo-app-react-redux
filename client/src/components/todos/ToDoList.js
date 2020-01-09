@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ToDoEdit from './ToDoEdit';
 
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {fetchToDos, editToDo} from '../../actions';
 
@@ -30,8 +31,8 @@ class ToDoList extends Component {
     e.preventDefault();
     const activeItem = e.currentTarget.getAttribute('data-item');
     const itemId = e.currentTarget.getAttribute('data-id');
-    const itemIdInt = parseInt(itemId);
     const activeItemInt = parseInt(activeItem);
+    const itemIdInt = parseInt(itemId);
 
     let {todos} = this.state;
     let todoList = [...this.state.todos];
@@ -53,40 +54,21 @@ class ToDoList extends Component {
     // this.props.editToDo(todoList, itemIdInt)
   }
 
-  openEdit = (e) => {
-    e.stopPropagation();
-    
-    const itemId = e.currentTarget.getAttribute('data-id');
-    const itemIdInt = parseInt(itemId);
-
-    this.setState({
-      showEdit : itemIdInt
-    })
-  }
-
-  closeEdit = (e) => {
-    e.stopPropagation();
-
-    this.setState({
-      showEdit : 0
-    })
-  }
-
   renderToDos = () => {
     let {todos} = this.state;
     let todoList;
 
       todoList = todos.map((todo, index) => {
         return (
-          <div className={`list-item ${(todo.checked === true ? 'checked' : '')}`} key={index} data-item={index} data-id={todo.id} onClick={this.toggleCheck}>
+          <div className={`list-item ${(todo.checked === true ? 'checked' : '')}`} key={index} >
             <div className="checkbox inline-block">
             </div>
             <div className="todo-item inline-block">
-              {todo.name}
-              <span className="edit-toggle" data-id={todo.id} onClick={this.openEdit}>
+              <span className="item" onClick={this.toggleCheck} data-item={index} data-id={todo.id}>{todo.name}</span>
+              <Link to={`/todos/edit/${todo.id}`} className="edit-toggle">
                 &#9998;
-              </span>
-              <ToDoEdit todoId={todo.id} classString={this.state.showEdit === todo.id ? 'edit-box show' : 'edit-box hide' } closeEdit={this.closeEdit} />
+              </Link>
+        
             </div>
           </div>
         )

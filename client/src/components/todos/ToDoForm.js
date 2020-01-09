@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
-import { editToDo } from '../../actions';
 
 class ToDoForm extends Component {
 
@@ -35,7 +34,7 @@ class ToDoForm extends Component {
     return (
       <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="todo-form">
         <div>Title</div>   
-        <Field name="title" component={this.renderInput} label="Enter title"/>
+        <Field name="name" component={this.renderInput} label="Enter title"/>
         <div>To Do due</div>
         <Field name="due" component={this.renderInput} label="Todo due"/>
         <button className="button">Submit</button>
@@ -55,6 +54,6 @@ const validate = formValues => {
 }
 
 export default reduxForm({
-  form: 'toDoForm',
+  form: 'todoForm',
   validate
-})(ToDoForm)
+})(ToDoForm);
