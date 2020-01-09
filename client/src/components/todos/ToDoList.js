@@ -49,7 +49,7 @@ class ToDoList extends Component {
         todoList
       })
     }
-    console.log(todoList);
+    // console.log(todoList);
     // this.props.editToDo(todoList, itemIdInt)
   }
 
@@ -101,7 +101,7 @@ class ToDoList extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
     <div>
       <div className="container h-center v-center">
