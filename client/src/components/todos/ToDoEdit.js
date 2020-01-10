@@ -24,7 +24,7 @@ class ToDoEdit extends Component {
       <div className="form-container">
         <h2 className="form-title">Edit To Do</h2>
         <ToDoForm initialValues={_.pick(this.props.todos, 'name', 'due')} onSubmit={this.onSubmit}/>
-        <Link to="/" className="button">
+        <Link to="/" className="button cancel">
           Cancel
         </Link>
       </div>

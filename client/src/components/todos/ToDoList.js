@@ -82,12 +82,18 @@ class ToDoList extends Component {
     )
   }
 
+
   render() {
     // console.log(this.state);
     return (
     <div>
       <div className="container h-center v-center">
         {this.renderToDos()}
+      </div>
+      <div className="button add button-shadow">
+        <Link to={`/todos/create`} className="add-button">
+          &#43;
+        </Link>
       </div>
     </div>
     )
