@@ -4,6 +4,7 @@ import {Field, reduxForm} from 'redux-form';
 class ToDoForm extends Component {
 
   onSubmit = (formValues) => {
+    console.log('form values ', formValues);
     this.props.onSubmit(formValues);
   }
 

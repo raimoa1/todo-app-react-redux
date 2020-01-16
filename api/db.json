@@ -1,16 +1,16 @@
 {
-  "todos" : [
+  "todos": [
     {
-      "id" : 1,
+      "id": 1,
       "name": "To do 1",
       "due": "Today",
-      "checked" : false
+      "checked": false
     },
     {
-      "id" : 2,
+      "id": 2,
       "name": "To do 2",
       "due": "22nd Sept",
-      "checked" : true
+      "checked": true
     }
   ]
 }

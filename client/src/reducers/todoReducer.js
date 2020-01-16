@@ -12,7 +12,7 @@ EDIT_TODO
 export default(state = {}, action) => {
   switch (action.type) {
     case FETCH_TODOS:
-      return {...state, ..._.mapKeys(action.payload, 'id')};
+      return {...state, [action.payload.id] : action.payload};
     case FETCH_TODO:
       return {...state, [action.payload.id] : action.payload}
     case CREATE_TODO:

@@ -17,13 +17,14 @@ class ToDoList extends Component {
   }
 
   populateToDoState = () => {
-    let todoStateList = this.props.todos.map((todo) => {
+    let todos = this.props.todos;
+    todos = Object.values(this.props.todos);
+    let todoStateList = todos[0].map((todo) => {
       return todo;
     });
 
     this.setState({
       todos : todoStateList,
-      showEdit : 0
     })
   }
 
@@ -50,8 +51,16 @@ class ToDoList extends Component {
         todoList
       })
     }
-    // console.log(todoList);
-    // this.props.editToDo(todoList, itemIdInt)
+
+    let singleTodo = {}
+
+    todoList.map((todo) => {
+      if (todo.id === itemIdInt) {
+        singleTodo = todo;
+      }
+    })
+
+    this.props.editToDo(itemIdInt, singleTodo)
   }
 
   renderToDos = () => {
@@ -84,7 +93,6 @@ class ToDoList extends Component {
 
 
   render() {
-    // console.log(this.state);
     return (
     <div>
       <div className="container h-center v-center">
@@ -100,10 +108,15 @@ class ToDoList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-    todos: Object.values(state.todos)
+    todos: state.todos
   };
 }
 
-export default connect(mapStateToProps, {fetchToDos, editToDo})(ToDoList);
+const mapDispatchToProps = {
+  fetchToDos,
+  editToDo
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);

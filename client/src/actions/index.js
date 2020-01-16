@@ -51,8 +51,8 @@ const response = await todos.post(`/todos`, {...formValues});
   });
 }
 
-export const editToDo = (formValues, id) => async (dispatch) => {
-const response = await todos.put(`/todos/${id}`, formValues);
+export const editToDo = (id, formValues) => async (dispatch) => {
+const response = await todos.put(`/todos/${id}`, {...formValues});
 
   dispatch({
     type: EDIT_TODO,
@@ -60,7 +60,7 @@ const response = await todos.put(`/todos/${id}`, formValues);
   })
 }
 
-export const toggleToDo = (value, id) => async (dispatch) => {
+export const toggleToDo = (id, value) => async (dispatch) => {
 const response = await todos.post(`/todos/${id}`, value);
 
   dispatch({
